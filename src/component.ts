@@ -8,6 +8,7 @@ import { build as optionRef } from './option/ref'
 import { build as optionWatch } from './option/watch'
 import { build as optionProps } from './option/props'
 import { build as optionInject } from './option/inject'
+import { build as optionProvide } from './option/provide'
 import { build as optionEmit } from './option/emit'
 import { build as optionVModel } from './option/vmodel'
 import { build as optionAccessor } from './option/accessor'
@@ -29,6 +30,7 @@ function ComponentOption(cons: Cons, extend?: any) {
     optionWatch(cons, optionBuilder)
     optionProps(cons, optionBuilder)
     optionInject(cons, optionBuilder)
+    optionProvide(cons, optionBuilder)
     optionEmit(cons, optionBuilder)
     optionRef(cons, optionBuilder)//after Computed
     optionMethodsAndHooks(cons, optionBuilder)//after Ref Computed
@@ -50,6 +52,7 @@ function ComponentOption(cons: Cons, extend?: any) {
         watch: optionBuilder.watch,
         props: optionBuilder.props,
         inject: optionBuilder.inject,
+        provide: optionBuilder.provide,
         ...optionBuilder.hooks,
         extends: extend
     }

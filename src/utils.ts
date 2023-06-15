@@ -7,11 +7,13 @@ import type { HookConfig } from "./option/methodsAndHooks";
 import type { VModelConfig } from "./option/vmodel";
 import type { WatchConfig } from "./option/watch";
 import type { SetupConfig } from './option/setup'
+import type { ProvideConfig } from './option/provide';
 const SlotSymbol = Symbol('vue-facing-decorator-slot')
 
 export type SlotMapTypes = {
     vanilla: Map<string, boolean>
     computed: Map<string, boolean>
+    provide: Map<string, ProvideConfig>
     inject: Map<string, InjectConfig>
     emit: Map<string, EmitConfig>
     emits: Map<string, boolean>
@@ -123,7 +125,7 @@ export function getSuperSlot(obj: any) {
 //     }
 //     return arr
 // }
-// export function 
+// export function
 // export function collect<>(slot: Slot,mapName:keyof SlotMapTypes,) {
 //     let currSlot: Slot | null = slot
 //     while (currSlot != null) {
@@ -148,7 +150,7 @@ export function excludeNames(names: string[], slot: Slot) {
         while (currSlot != null) {
             for (const mapName of currSlot.names.keys()) {
 
-                if (['watch', 'hooks', 'setup','emits'].includes(mapName)) {
+                if (['watch', 'hooks', 'setup', 'emits', 'provide'].includes(mapName)) {
                     continue
                 }
                 const map = currSlot.names.get(mapName)!
