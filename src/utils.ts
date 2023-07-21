@@ -8,6 +8,7 @@ import type { VModelConfig } from "./option/vmodel";
 import type { WatchConfig } from "./option/watch";
 import type { SetupConfig } from './option/setup'
 import type { ProvideConfig } from './option/provide';
+import type {RefConfig} from './option/ref';
 const SlotSymbol = Symbol('vue-facing-decorator-slot')
 
 export type SlotMapTypes = {
@@ -21,7 +22,7 @@ export type SlotMapTypes = {
     hooks: Map<string, HookConfig>
     'v-model': Map<string, VModelConfig>
     watch: Map<string, WatchConfig | WatchConfig[]>
-    ref: Map<string, boolean>
+    ref: Map<string, RefConfig>
     setup: Map<string, SetupConfig>
 }
 
